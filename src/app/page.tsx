@@ -55,12 +55,12 @@ function HomeContent() {
   return (
     <div className="min-h-screen py-10 px-4">
       <div className="max-w-5xl mx-auto">
-        <div className="flex items-center justify-between mb-8">
-          <div>
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-8">
+          <div className="min-w-0">
             <h1 className="text-3xl font-bold text-foreground">{t("appName")}</h1>
             <p className="text-sm text-muted-foreground">{t("appTagline")}</p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             <LanguagePicker />
             <CurrencyPicker value={currency} onChange={setCurrency} />
             <ThemeToggle />
