@@ -1,0 +1,16 @@
+{
+  "name": "FreeSubsTracker - Free Subscriptions Tracker",
+  "short_name": "FreeSubsTracker",
+  "description": "Track and manage all your recurring subscriptions for free. No sign-up required.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#09090b",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}
