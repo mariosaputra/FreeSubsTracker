@@ -29,7 +29,7 @@ Free, open-source subscriptions tracker. No sign-up, no accounts, no tracking. Y
 
 ```bash
 # Clone the repo
-git clone https://github.com/xmarioapps/FreeSubsTracker.git
+git clone https://github.com/mariosaputra/FreeSubsTracker.git
 cd FreeSubsTracker
 
 # Install dependencies
@@ -79,6 +79,63 @@ public/
   robots.txt
   sitemap.xml
 ```
+
+## Data Structure
+
+If you want to import data directly, create a JSON file matching this format:
+
+```json
+{
+  "currencies": {
+    "USD": {
+      "subscriptions": [
+        {
+          "id": "unique-uuid",
+          "name": "Netflix",
+          "cost": 15.99,
+          "cycle": "monthly",
+          "category": "Streaming",
+          "profile": "Personal"
+        },
+        {
+          "id": "unique-uuid-2",
+          "name": "GitHub Pro",
+          "cost": 48,
+          "cycle": "annual",
+          "category": "Software",
+          "profile": "Business"
+        }
+      ],
+      "profiles": ["Work"],
+      "categories": ["Cloud"]
+    },
+    "EUR": {
+      "subscriptions": [],
+      "profiles": [],
+      "categories": []
+    }
+  },
+  "activeCurrency": "USD"
+}
+```
+
+### Field Reference
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | `string` | Unique identifier (UUID recommended) |
+| `name` | `string` | Subscription name |
+| `cost` | `number` | Price (0 – 999,999,999) |
+| `cycle` | `"monthly"` \| `"annual"` | Billing cycle |
+| `category` | `string` | Category label (e.g. Streaming, Software, Music, Other, or custom) |
+| `profile` | `string` | Profile name the subscription belongs to |
+
+### Notes
+
+- Each currency key (e.g. `USD`, `EUR`) holds its own independent set of subscriptions, profiles, and categories
+- `profiles` and `categories` arrays are for **custom** entries only — `Personal` and `Business` profiles are built-in defaults
+- `activeCurrency` determines which currency tab is selected after import
+- Legacy format (flat `{ subscriptions: [...] }` or plain array `[...]`) is also supported for single-currency imports
 
 ## Privacy
 
